@@ -1,0 +1,35 @@
+
+
+#mesaContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-style: solid;
+  border-color: black;
+  width: 1000px;
+  height: 1200px;
+
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-style: solid;
+  border-color: brown;
+  width: 960px;
+  height: 960px;
+}
+
+.cell {
+  margin: 0px;
+  border-style:solid;
+  border-color:black;
+  border-width: 3px;
+  background-color:rgb(255, 255, 255);
+}
