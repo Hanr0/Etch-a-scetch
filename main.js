@@ -1,4 +1,4 @@
-const container = document.querySelector("#container");
+const container = document.querySelector("#gridContainer");
 
 // a range slider asking the user the size of the grid and displaying current size
 const slider = document.getElementById("myRange");
@@ -16,6 +16,7 @@ eraser()
 reset()
 rainbow()
 
+//when the slider is shifted it returns a new value for the gridsize, 
 slider.oninput = function() {
   sliderDisplay.innerHTML = `Gridsize: ${this.value} x ${slider.value}`;
   container.replaceChildren();
@@ -27,22 +28,22 @@ slider.oninput = function() {
   Hoover()
   eraser()
   reset()
-  rainbow()
-  console.log(slider.value);
+  rainbow();
 }
 
-
+//a function creating the grid.
 function createGrid(grdSz){
   let strToAppend = "";
   for (let i = 0;i<grdSz;i++){
     strToAppend += "auto ";
   };  
-  document.getElementById("container").style.display = "grid";
-  document.getElementById("container").style.gridTemplateColumns = strToAppend;
+  document.getElementById("gridContainer").style.display = "grid";
+  document.getElementById("gridContainer").style.gridTemplateColumns = strToAppend;
 
 };
 
-// a help function to generate the cell id name it takes a number and adds zeroes to fit the total ammount of cells.
+// a help function to generate the cell id name it takes a number and adds zeroes 
+//to fit the total amount of cells.
 function addZeroes(number,total){
   let str = "" + number;
   let pad = "0".repeat(total.toString().length);
@@ -50,7 +51,7 @@ function addZeroes(number,total){
 }
 
 //a function with a for loop creating the total amount of cells
-function createCells(total,containerSize,gridSize){  
+function createCells(total){  
   for (let cellN = 1; cellN<=total; cellN++){
     const div = document.createElement("div");
     div.className = "cell";
@@ -63,7 +64,7 @@ function createCells(total,containerSize,gridSize){
 };
 
 //a function with an array with all cells, for every cell in the array I add an event listener 
-//triggering a callback function to change the backgroundcolor to black  
+//triggering a callback function to change the backgroundcolor to black. 
 function Hoover(){
   const cellsArray = document.querySelectorAll(".cell");
   let arrayLen = cellsArray.length;
@@ -80,7 +81,7 @@ function Hoover(){
   };
 };
 
-//a function that returns a random RGB value 
+//a function that returns a random RGB value. 
 function randomRGB(){
   let R = Math.floor(Math.random() * 256);
   let G = Math.floor(Math.random() * 256);
@@ -88,7 +89,7 @@ function randomRGB(){
   return `rgb(${R}, ${G}, ${B})`
 }
 
-//add event listener to eraser buton
+//add event listener to eraser button.
 function eraser(){
   const eraserBtn = document.querySelector("#eraser");
   eraserBtn.addEventListener("click", function(){
@@ -111,12 +112,11 @@ function reset(){
   const resetBtn = document.querySelector("#resetBtn");
   resetBtn.addEventListener("click", function(){
     for (let i = 0; i < arrayLen; i++) {
-      cellsArray[i].style = "display: grid"
       cellsArray[i].className = "cell";
+      cellsArray[i].style = "display: grid";
       hooverMode = "default"
     }
   });
 };
-
 
 
