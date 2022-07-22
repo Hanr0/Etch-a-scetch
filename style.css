@@ -1,31 +1,61 @@
-#container {
-  width: 1000px;
-  height: 1000px;
+body {
+  font-family: 'lobster';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #BDECE7;
+  font: #071C1A;
+}
+
+#gridContainer {
+  width: 500px;
+  height: 500px;
   border-style: solid;
+  border-color: #071C1A;
 
 }
+
+#buttonsContainer {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.button {
+  width: 166px;
+  border: solid;
+  border-radius: 5px;
+  border-color: #196D82;
+  background-color: #2AB9DF;
+  margin-top: 5px;
+}
+
 
 .cell {
   border-style: solid;
   border-width: 1px;  
-  background-color: white;
+  background-color: #dcf5f2;
+  border-color: #071C1A  ;
 }
 
 .cellBlack {
   border-style: solid;
   border-width: 1px;
-  background-color: black;
+  background-color: #071C1A;
+  border-color: #071C1A;
 }
 
 
 .cellRainbow{
   border-style: solid;
   border-width: 1px;
+  border-color: #071C1A;
 }
 
 .slider {
   -webkit-appearance: none;
-  width: 100%;
+  width: 500px;
   height: 25px;
   background: #d3d3d3;
   outline: none;
@@ -34,3 +64,6 @@
   transition: opacity .2s;
 }
 
+#sliderDisplay {
+  font-size: large;
+}
